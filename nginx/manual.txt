@@ -1,0 +1,55 @@
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-debian-10
+https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/
+https://help.dreamhost.com/hc/en-us/articles/216454967-How-to-reload-and-restart-Nginx-Dedicated-servers-only-
+https://dev.to/jpblancodb/configure-let-s-encrypt-nginx-in-ubuntu-bph
+
+$ cat /etc/os-release
+$ apt-get update
+$ nginx -t
+$ /etc/init.d/nginx reload
+$ apt-get install python-certbot-nginx
+$ apt-get install cron
+$ apt-get install nano
+$ apt-get install ufw
+$ certbot --nginx -d your_domain -d www.your_domain
+
+$certbot renew --dry-run
+
+create image from container which from std image 
+$sudo docker commit 643442b29a3f test/test
+
+$sudo docker login 
+    Username:nikhomdoc
+    password:boxbox
+
+push to dockerhub
+$sudo docker push test/test 
+////////////////////////////////////////
+create docker network between 2 docker-compose.yml
+$ docker network create external-example
+
+
+
+=:  If an equal sign is used, this block will be considered 
+    a match if the request URI exactly matches the location given.
+
+~:  If a tilde modifier is present, this location will be 
+    interpreted as a case-sensitive regular expression match.
+
+~*: If a tilde and asterisk modifier is used, the location 
+    block will be interpreted as a case-insensitive regular expression match.
+
+^~: If a carat and tilde modifier is present, and if this 
+    block is selected as the best non-regular expression match, 
+    regular expression matching will not take place.
+
+~ ^/BlogPlanet(/|/index\.php)$
+
+//=============================
+check cpu core in different way
+grep -m 1 'cpu cores' /proc/cpuinfo
+
+check cpu core with pid per core
+lscpu | grep -E '^Thread|^Core|^Socket|^CPU\('
+
+

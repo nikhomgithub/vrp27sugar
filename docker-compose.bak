@@ -1,0 +1,32 @@
+version: '3'
+services:
+  serversugar27:
+    container_name: myserversugar27
+    restart: always
+    build: ./server1
+    ports:
+      - '3001:3001'
+    environment:
+      - MONGO_URI=mongodb://mongosugar27:27017/vrpsugar27
+      - PORT=3001
+      - JWT_SECRET=jwtSecret
+    volumes:
+      - ./server1/upload:/usr/src/app/upload
+      - ./server1/data/backupData:/usr/src/app/data/backupData
+      - ./server1/data/initData:/usr/src/app/data/initData
+      - ./server1/data/restoreData:/usr/src/app/data/restoreData
+    links:
+      - mongosugar27
+  mongosugar27:
+    container_name: mymongosugar27
+    restart: always
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./mongo/mydb:/data/db
+
+networks: 
+  default: 
+    external: 
+      name: external-network-sugar27

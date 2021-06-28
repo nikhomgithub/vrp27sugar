@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nginxsugar27:
+    container_name: nginxsugar27
+    image: nikhomdoc/sugar_nginx2
+    ports:
+      - '80:80'
+    volumes:
+      - ../client/build:/usr/share/nginx/html
+      - ../config:/etc/nginx/conf.d
+
+networks: 
+    default: 
+        external: 
+            name: external-network-sugar27
